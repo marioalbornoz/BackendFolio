@@ -29,7 +29,7 @@ class Folio(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length = 1000)
     created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     student = models.ForeignKey(Alumno, on_delete=models.CASCADE )
 
     class Meta:
