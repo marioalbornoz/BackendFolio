@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Carrera, Alumno, Folio
+from .models import Carrera, Alumno, Folio
 # Register your models here.
 @admin.register(Carrera)
 class CarreraAdmin(admin.ModelAdmin):
@@ -27,7 +27,7 @@ class AlumnoAdmin(admin.ModelAdmin):
 class FolioAdmin(admin.ModelAdmin):
     list_display = [
         'user',
-        'student',
+        'alumno',
         'content',
         'created'
     ]
