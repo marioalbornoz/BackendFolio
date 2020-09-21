@@ -9,9 +9,6 @@ class CarreraSerializer(serializers.ModelSerializer):
 
 
 class AlumnoSerializer(serializers.ModelSerializer):
-    codigo = serializers.IntegerField(source='carrera.codigo')
-    nombrecarrera = serializers.CharField(source='carrera.nombre')
-
     class Meta:
         model = Alumno
         fields = "__all__"
