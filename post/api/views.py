@@ -63,18 +63,6 @@ class FolioViewSet(viewsets.ViewSet):
             dict_response = {"error": True, "message": "Error During Saving Folio Data"}
         return Response(dict_response)
 
-    def update(self, request, pk=None):
-        try:
-            queryset = Folio.objects.all()
-            folio = get_object_or_404(queryset, pk=pk)
-            serializer = FolioSerializer(folio, data=request.data, context={"request": request})
-            serializer.is_valid(raise_exception=True)
-            serializer.save()
-            dict_response = {"error": False, "message": "Successfully Updated Folio Data"}
-        except:
-            dict_response = {"error": True, "message": "Error During Updating Folio Data"}
-
-        return Response(dict_response)
 
 
 class AlumnoViewSet(viewsets.ModelViewSet):
@@ -84,8 +72,6 @@ class AlumnoViewSet(viewsets.ModelViewSet):
 
 carrera_list=CarreraViewSet.as_view({"get":"list"})
 carrera_creat=CarreraViewSet.as_view({"post":"create"})
-carrera_update=CarreraViewSet.as_view({"put":"update"})
 
 folio_list=FolioViewSet.as_view({"get":"list"})
 folio_creat=FolioViewSet.as_view({"post":"create"})
-folio_update=FolioViewSet.as_view({"put":"update"})

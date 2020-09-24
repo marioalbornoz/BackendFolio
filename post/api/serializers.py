@@ -20,9 +20,10 @@ class AlumnoSerializer(serializers.ModelSerializer):
 
 
 class FolioSerializer(serializers.ModelSerializer):
+    usuario = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = Folio
-        fields = "__all__"
+        fields = ('usuario', 'content','created','alumno')
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
