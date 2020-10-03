@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
 
 from rest_framework.permissions import IsAuthenticated
@@ -6,7 +7,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from post.models import Alumno, Folio, Carrera
-from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer
+from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer, UserSerializer
 
 
 class CarreraViewSet(viewsets.ViewSet):
@@ -64,14 +65,20 @@ class FolioViewSet(viewsets.ViewSet):
         return Response(dict_response)
 
 
-
 class AlumnoViewSet(viewsets.ModelViewSet):
     serializer_class = AlumnoSerializer
     queryset = Alumno.objects.all()
 
 
-carrera_list=CarreraViewSet.as_view({"get":"list"})
-carrera_creat=CarreraViewSet.as_view({"post":"create"})
+class UserViewSet(viewsets.ModelViewSet):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserSerializer
+    queryset = User.objects.all()
 
-folio_list=FolioViewSet.as_view({"get":"list"})
-folio_creat=FolioViewSet.as_view({"post":"create"})
+
+carrera_list = CarreraViewSet.as_view({"get": "list"})
+carrera_creat = CarreraViewSet.as_view({"post": "create"})
+
+folio_list = FolioViewSet.as_view({"get": "list"})
+folio_creat = FolioViewSet.as_view({"post": "create"})
