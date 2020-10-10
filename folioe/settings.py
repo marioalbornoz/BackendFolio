@@ -131,7 +131,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-CORS_ORIGIN_ALLOW_ALL = True
 
 #APPEND_SLASH = False
 
@@ -149,3 +148,4 @@ SIMPLE_JWT = {
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 }
+CORS_ORIGIN_ALLOW_ALL = True

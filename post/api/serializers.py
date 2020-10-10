@@ -1,13 +1,29 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
+
 from post.models import Alumno, Folio, Carrera
 
 
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = ('id', 'name',)
+
+
 class UserSerializer(serializers.ModelSerializer):
+    #groups = GroupSerializer(many=True)
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'password')
-        extra_kwargs = {'password':{'write_only': True, 'required': True}}
+        fields = ('id', 'username', 'password', 'email', 'is_active', 'last_login', 'groups')
+        extra_kwargs = {'password': {'write_only': True, 'required': True}}
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+        groups = instance.groups.all()
+        groups_serializers = GroupSerializer(groups, many=True)
+        representation['groups'] = groups_serializers.data
+        return representation
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
