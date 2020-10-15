@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Carrera, Alumno, Folio
+from .models import Carrera, Alumno, Folio, Feedbacks
 # Register your models here.
 @admin.register(Carrera)
 class CarreraAdmin(admin.ModelAdmin):
@@ -34,4 +34,11 @@ class FolioAdmin(admin.ModelAdmin):
     search_fields = [
         'content'
 
+    ]
+@admin.register(Feedbacks)
+class FeedbacksAdmin(admin.ModelAdmin):
+    list_display=[
+        'user',
+        'comentario',
+        'created'
     ]

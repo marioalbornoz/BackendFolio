@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
 
-from post.models import Alumno, Folio, Carrera
+from post.models import Alumno, Folio, Carrera, Feedbacks
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -11,11 +11,12 @@ class GroupSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    #groups = GroupSerializer(many=True)
+    # groups = GroupSerializer(many=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username','first_name','last_name', 'password', 'email', 'is_active', 'last_login', 'groups')
+        fields = ('id', 'username', 'first_name', 'last_name',
+                  'password', 'email', 'is_active', 'last_login', 'groups')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     def to_representation(self, instance):
@@ -58,3 +59,10 @@ class FolioSerializer(serializers.ModelSerializer):
         response = super().to_representation(instance)
         response['alumno'] = AlumnoSerializer(instance.alumno).data
         return response
+
+
+class FeedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedbacks
+        fields = '__all__'
+    
