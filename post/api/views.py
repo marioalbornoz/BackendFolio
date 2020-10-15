@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.pagination import PageNumberPagination
 
 from post.models import Alumno, Folio, Carrera
 from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer, UserSerializer
@@ -13,6 +14,7 @@ from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer, U
 class CarreraViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+    pagination_class = None
 
     def list(self, request):
         carrera = Carrera.objects.all()
@@ -47,6 +49,7 @@ class CarreraViewSet(viewsets.ViewSet):
 class FolioViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+    pagination_class = None
 
     def list(self, request):
         folio = Folio.objects.all()
@@ -68,6 +71,7 @@ class FolioViewSet(viewsets.ViewSet):
 class AlumnoViewSet(viewsets.ModelViewSet):
     serializer_class = AlumnoSerializer
     queryset = Alumno.objects.all()
+    pagination_class = PageNumberPagination
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -75,6 +79,7 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
     queryset = User.objects.all()
+    pagination_class = None
 
 
 carrera_list = CarreraViewSet.as_view({"get": "list"})
