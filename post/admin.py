@@ -1,6 +1,18 @@
 from django.contrib import admin
-from .models import Carrera, Alumno, Folio, Feedbacks
+from .models import Facultad, Carrera, Alumno, Folio, Feedbacks, CustomUser
 # Register your models here.
+
+admin.site.register(CustomUser)
+
+@admin.register(Facultad)
+class FacultadAdmin(admin.ModelAdmin):
+    list_display = [
+        'nombre'
+    ]
+    search_fields =[
+        'nombre'
+    ]
+
 @admin.register(Carrera)
 class CarreraAdmin(admin.ModelAdmin):
     list_display = [

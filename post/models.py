@@ -5,14 +5,25 @@ import uuid
 
 # Create your models here.
 
-class Carrera(models.Model):
-    id = models.AutoField(primary_key=True)
+
+
+class Facultad(models.Model):
     nombre = models.CharField(max_length=100)
-    codigo = models.IntegerField()
 
     def __str__(self):
         return self.nombre
 
+class Carrera(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100)
+    codigo = models.IntegerField()
+    facultad = models.ForeignKey(Facultad,on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.nombre
+
+class CustomUser(User):
+    carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

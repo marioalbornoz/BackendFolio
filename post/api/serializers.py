@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
 
-from post.models import Alumno, Folio, Carrera, Feedbacks
+from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -32,9 +32,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class CarreraSerializer(serializers.ModelSerializer):
+    facultad = serializers.ReadOnlyField(source='facultad.nombre')
     class Meta:
         model = Carrera
-        fields = "__all__"
+        fields = ('id', 'nombre', 'codigo', 'facultad')
 
 
 class AlumnoSerializer(serializers.ModelSerializer):
