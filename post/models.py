@@ -23,7 +23,6 @@ class Carrera(models.Model):
 
 class CustomUser(AbstractUser):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
-    facultad = models.ForeignKey(Facultad, on_delete=models.CASCADE, blank=False, null=False)
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
