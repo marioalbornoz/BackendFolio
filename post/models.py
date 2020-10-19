@@ -5,13 +5,12 @@ import uuid
 
 # Create your models here.
 
-
-
 class Facultad(models.Model):
     nombre = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre
+
 
 class Carrera(models.Model):
     id = models.AutoField(primary_key=True)
@@ -22,8 +21,9 @@ class Carrera(models.Model):
     def __str__(self):
         return self.nombre
 
-class CustomUser(User):
+class CustomUser(AbstractUser):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
+    facultad = models.ForeignKey(Facultad, on_delete=models.CASCADE, blank=False, null=False)
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -38,7 +38,7 @@ class Alumno(models.Model):
 
 
 class Folio(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     content = models.TextField(max_length=1000)
     created = models.DateTimeField(auto_now_add=True)
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
@@ -51,7 +51,7 @@ class Folio(models.Model):
 
 
 class Feedbacks(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     comentario = models.TextField(max_length=1000)
     created = models.DateTimeField(auto_now_add=True)
     class Meta:

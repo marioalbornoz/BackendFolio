@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
 
 from rest_framework.permissions import IsAuthenticated
@@ -7,7 +7,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.pagination import PageNumberPagination
 
-from post.models import Alumno, Folio, Carrera, Feedbacks
+from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser
 from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer, UserSerializer, FeedSerializer
 
 
@@ -78,7 +78,7 @@ class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     pagination_class = None
 
 class FeedbackViewSet(viewsets.ModelViewSet):

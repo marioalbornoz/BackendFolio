@@ -14,9 +14,9 @@ class UserSerializer(serializers.ModelSerializer):
     # groups = GroupSerializer(many=True)
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login', 'groups')
+                  'password', 'email', 'is_active', 'last_login', 'groups', 'facultad')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     def to_representation(self, instance):
