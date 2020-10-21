@@ -23,6 +23,7 @@ class Carrera(models.Model):
 
 class CustomUser(AbstractUser):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
+    is_decano = models.BooleanField(default=False)
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
