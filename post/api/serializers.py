@@ -51,16 +51,15 @@ class AlumnoSerializer(serializers.ModelSerializer):
 
 class FolioSerializer(serializers.ModelSerializer):
     usuario = serializers.ReadOnlyField(source='user.username')
-
+    is_group = serializers.CharField(source='user.groups.all.exists') 
     class Meta:
         model = Folio
-        fields = ('usuario', 'user', 'content', 'created', 'alumno')
+        fields = ('usuario', 'user', 'content', 'created', 'alumno', 'priority_one', 'priority_two', 'is_group')
 
     def to_representation(self, instance):
         response = super().to_representation(instance)
         response['alumno'] = AlumnoSerializer(instance.alumno).data
         return response
-
 
 class FeedSerializer(serializers.ModelSerializer):
     class Meta:

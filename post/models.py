@@ -40,6 +40,8 @@ class Alumno(models.Model):
 class Folio(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     content = models.TextField(max_length=1000)
+    priority_one = models.BooleanField(default=False)
+    priority_two = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
 
