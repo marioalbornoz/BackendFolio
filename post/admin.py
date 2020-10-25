@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Facultad, Carrera, Alumno, Folio, Feedbacks, CustomUser
+from .models import Facultad, Carrera, Alumno, Folio, Feedbacks, CustomUser, Rol, Escuela
 # Register your models here.
 
 admin.site.register(CustomUser)
@@ -53,4 +53,16 @@ class FeedbacksAdmin(admin.ModelAdmin):
         'user',
         'comentario',
         'created'
+    ]
+
+@admin.register(Rol)
+class RolAdmin(admin.ModelAdmin):
+    list_display=[
+        'roles'
+    ]
+
+@admin.register(Escuela)
+class EscuelaAdmin(admin.ModelAdmin):
+    list_display=[
+        'nombre'
     ]

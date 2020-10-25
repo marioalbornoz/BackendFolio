@@ -11,19 +11,34 @@ class Facultad(models.Model):
     def __str__(self):
         return self.nombre
 
-
-class Carrera(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=100)
-    codigo = models.IntegerField()
+class Escuela(models.Model):
+    nombre = models.CharField(max_length=50)
     facultad = models.ForeignKey(Facultad,on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.nombre
 
+class Carrera(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=100)
+    codigo = models.IntegerField()
+    escuela = models.ForeignKey(Escuela,on_delete=models.CASCADE, null=True, blank=True)
+    
+
+    def __str__(self):
+        return self.nombre
+
+class Rol(models.Model):
+    roles = models.CharField(max_length=50)
+    def __str__(self):
+        return self.roles
+
 class CustomUser(AbstractUser):
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
-    is_decano = models.BooleanField(default=False)
+    facultad = models.ForeignKey(Facultad, on_delete=models.CASCADE, blank=True, null=True)
+    sex = models.BooleanField(default=False)
+    rol = models.ForeignKey(Rol, on_delete=models.CASCADE, null=True, blank=True)
+    escuela = models.ForeignKey(Escuela,on_delete=models.CASCADE, null=True, blank=True)
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -61,3 +76,5 @@ class Feedbacks(models.Model):
 
     def __str__(self):
         return self.comentario
+
+

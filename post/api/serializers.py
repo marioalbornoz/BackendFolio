@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
 
-from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser
+from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser, Rol, Facultad
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -9,14 +9,18 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         fields = ('id', 'name',)
 
+# class RolSerializer(serializers.ModelSerializer):
+#     model = Rol
+#     fields = ('id', 'nombre')
 
 class UserSerializer(serializers.ModelSerializer):
-    # groups = GroupSerializer(many=True)
+    rol = serializers.ReadOnlyField(source='rol.roles')
 
     class Meta:
         model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login', 'groups', 'carrera', 'is_decano')
+                  'password', 'email', 'is_active', 'last_login',
+                   'groups', 'carrera', 'sex', 'rol', 'escuela')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     def to_representation(self, instance):
@@ -30,12 +34,17 @@ class UserSerializer(serializers.ModelSerializer):
         user = CustomUser.objects.create_user(**validated_data)
         return user
 
+class FacultadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Facultad
+        fields = ('nombre','id')
 
 class CarreraSerializer(serializers.ModelSerializer):
-    facultad = serializers.ReadOnlyField(source='facultad.nombre')
+    escuela = serializers.ReadOnlyField(source='escuela.nombre')
+    facultad = serializers.ReadOnlyField(source='escuela.facultad.nombre')
     class Meta:
         model = Carrera
-        fields = ('id', 'nombre', 'codigo', 'facultad')
+        fields = ('id', 'nombre', 'codigo', 'escuela', 'facultad')
 
 
 class AlumnoSerializer(serializers.ModelSerializer):

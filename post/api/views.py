@@ -7,8 +7,10 @@ from rest_framework.generics import get_object_or_404
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.pagination import PageNumberPagination
 
-from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser
-from .serializers import AlumnoSerializer, FolioSerializer, CarreraSerializer, UserSerializer, FeedSerializer
+from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser, Facultad
+from .serializers import (AlumnoSerializer,FolioSerializer, 
+                        CarreraSerializer, UserSerializer,
+                        FeedSerializer, FacultadSerializer)
 
 
 class CarreraViewSet(viewsets.ViewSet):
@@ -79,6 +81,13 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
+    pagination_class = None
+
+class FacultadViewSet(viewsets.ModelViewSet):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = FacultadSerializer
+    queryset = Facultad.objects.all()
     pagination_class = None
 
 class FeedbackViewSet(viewsets.ModelViewSet):
