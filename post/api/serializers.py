@@ -4,10 +4,10 @@ from django.contrib.auth.models import User, Group
 from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser, Rol, Facultad
 
 
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('id', 'name',)
+# class GroupSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Group
+#         fields = ('id', 'name',)
 
 # class RolSerializer(serializers.ModelSerializer):
 #     model = Rol
@@ -19,16 +19,15 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login',
-                   'groups', 'carrera', 'sex', 'rol', 'escuela')
+                  'password', 'email', 'is_active', 'last_login','carrera', 'sex', 'rol', 'escuela')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        groups = instance.groups.all()
-        groups_serializers = GroupSerializer(groups, many=True)
-        representation['groups'] = groups_serializers.data
-        return representation
+    # def to_representation(self, instance):
+    #     representation = super().to_representation(instance)
+    #     groups = instance.groups.all()
+    #     groups_serializers = GroupSerializer(groups, many=True)
+    #     representation['groups'] = groups_serializers.data
+    #     return representation
 
     def create(self, validated_data):
         user = CustomUser.objects.create_user(**validated_data)
@@ -60,10 +59,9 @@ class AlumnoSerializer(serializers.ModelSerializer):
 
 class FolioSerializer(serializers.ModelSerializer):
     usuario = serializers.ReadOnlyField(source='user.username')
-    is_group = serializers.CharField(source='user.groups.all.exists') 
     class Meta:
         model = Folio
-        fields = ('usuario', 'user', 'content', 'created', 'alumno', 'priority_one', 'priority_two', 'is_group')
+        fields = ('usuario', 'user', 'content', 'created', 'alumno', 'priority_one', 'priority_two')
 
     def to_representation(self, instance):
         response = super().to_representation(instance)

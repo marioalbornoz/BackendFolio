@@ -41,6 +41,8 @@ class FolioAdmin(admin.ModelAdmin):
         'user',
         'alumno',
         'content',
+        'priority_one',
+        'priority_two',
         'created'
     ]
     search_fields = [
