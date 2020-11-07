@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
-
+from django.contrib.auth import get_user_model
 from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser, Rol, Facultad
 
+User = get_user_model()
 
 # class GroupSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -14,12 +15,12 @@ from post.models import Alumno, Folio, Carrera, Feedbacks, CustomUser, Rol, Facu
 #     fields = ('id', 'nombre')
 
 class UserSerializer(serializers.ModelSerializer):
-    rol = serializers.ReadOnlyField(source='rol.roles')
+    # rol = serializers.ReadOnlyField(source='rol.roles')
 
     class Meta:
-        model = CustomUser
+        model = User
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login','carrera', 'sex', 'rol', 'escuela')
+                  'password', 'email', 'is_active', 'last_login', 'carrera', 'sex', 'rol', 'escuela', 'is_staff', 'facultad')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     # def to_representation(self, instance):
@@ -30,7 +31,7 @@ class UserSerializer(serializers.ModelSerializer):
     #     return representation
 
     def create(self, validated_data):
-        user = CustomUser.objects.create_user(**validated_data)
+        user = User.objects.create_user(**validated_data)
         return user
 
 class FacultadSerializer(serializers.ModelSerializer):
@@ -59,9 +60,10 @@ class AlumnoSerializer(serializers.ModelSerializer):
 
 class FolioSerializer(serializers.ModelSerializer):
     usuario = serializers.ReadOnlyField(source='user.username')
+    rol = serializers.ReadOnlyField(source='user.rol.roles')
     class Meta:
         model = Folio
-        fields = ('usuario', 'user', 'content', 'created', 'alumno', 'priority_one', 'priority_two')
+        fields = ('usuario', 'user','rol', 'content', 'created', 'alumno', 'priority_one', 'priority_two')
 
     def to_representation(self, instance):
         response = super().to_representation(instance)

@@ -26,3 +26,4 @@ urlpatterns = [
 
 
 ]
+admin.site.site_header = 'Folio Estudiantil UTEM'
