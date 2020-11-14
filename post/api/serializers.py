@@ -17,12 +17,15 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     # rol = serializers.ReadOnlyField(source='rol.roles')
     carreranombre = serializers.ReadOnlyField(source='carrera.nombre')
-    facultad = serializers.ReadOnlyField(source='facultad.nombre')
-    escuela = serializers.ReadOnlyField(source='escuela.nombre')
+    facultadnombre = serializers.ReadOnlyField(source='facultad.nombre')
+    escuelanombre = serializers.ReadOnlyField(source='escuela.nombre')
+    last_login = serializers.ReadOnlyField(source='user.last_login')
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login', 'sex', 'rol', 'carrera','carreranombre', 'escuela', 'facultad', 'is_staff')
+                  'password', 'email', 'is_active', 'last_login',
+                  'sex', 'rol', 'carrera', 'carreranombre', 'escuela','escuelanombre',
+                  'facultad', 'facultadnombre', 'is_staff', 'is_manager', 'is_log')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     # def to_representation(self, instance):

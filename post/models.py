@@ -39,8 +39,10 @@ class CustomUser(AbstractUser):
     sex = models.BooleanField(default=False)
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE, null=True, blank=True)
     escuela = models.ForeignKey(Escuela,on_delete=models.CASCADE, null=True, blank=True)
+    is_manager = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_log = models.BooleanField(default=False);
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -81,5 +83,4 @@ class Feedbacks(models.Model):
 
     def __str__(self):
         return self.comentario
-
 
