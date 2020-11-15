@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useState } from 'react'
 import { AlumnosContext } from '../context/AlumnosContext';
+import Config from '../utils/Config';
 import { Spinner } from './Spinner';
 
 export const Feedbacks = () => {
@@ -22,7 +23,7 @@ export const Feedbacks = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://folioe.herokuapp.com/api/feedback/", {
+        const res = await fetch(Config.feedback, {
           method: "POST",
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,
