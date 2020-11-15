@@ -53,9 +53,10 @@ class CarreraSerializer(serializers.ModelSerializer):
 
 class EscuelaSerializer(serializers.ModelSerializer):
     facultad = serializers.ReadOnlyField(source='facultad.nombre')
+    facultadid = serializers.ReadOnlyField(source='facultad.id')
     class Meta:
         model = Escuela
-        fields = ('id', 'nombre', 'facultad')
+        fields = ('id', 'nombre', 'facultad', 'facultadid')
 
 class AlumnoSerializer(serializers.ModelSerializer):
     class Meta:
