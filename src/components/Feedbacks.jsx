@@ -22,7 +22,7 @@ export const Feedbacks = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://127.0.0.1:8000/api/feedback/", {
+        const res = await fetch("http://folioe.herokuapp.com/api/feedback/", {
           method: "POST",
           headers: {
             Authorization: `JWT ${localStorage.getItem("token")}`,

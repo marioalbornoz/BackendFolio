@@ -1,15 +1,15 @@
 
 
 class Config {
-  static loginUrl = "http://127.0.0.1:8000/api/gettoken/";
+  static loginUrl = "http://folioe.herokuapp.com/api/gettoken/";
   static homeUrl = "/";
   static logoutPageUrl = "/logout";
-  static refreshApiUrl = "http://127.0.0.1:8000/api/refresh_token/";
-  static listFolios = "http://localhost:8000/api/folio/";
-  static listaUsuarios = "http://127.0.0.1:8000/api/usuarios/";
-  static carreras = "http://127.0.0.1:8000/api/carrera/";
-  static escuelas = "http://127.0.0.1:8000/api/escuelas/";
-  static facultades = "http://127.0.0.1:8000/api/facultad/";
+  static refreshApiUrl = "http://folioe.herokuapp.com/api/refresh_token/";
+  static listFolios = "http://folioe.herokuapp.com/api/folio/";
+  static listaUsuarios = "http://folioe.herokuapp.com/api/usuarios/";
+  static carreras = "http://folioe.herokuapp.com/api/carrera/";
+  static escuelas = "http://folioe.herokuapp.com/api/escuelas/";
+  static facultades = "http://folioe.herokuapp.com/api/facultad/";
 
 }
   
