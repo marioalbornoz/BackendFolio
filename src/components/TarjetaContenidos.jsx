@@ -9,7 +9,7 @@ import LoaderTargetContent from './LoaderTargetContent';
 export const TarjetaContenidos = ({folio, oculto}) => {
   
   const {perfil} = useContext(PerfilContext)
-  console.log(perfil, folio);
+  // console.log(perfil, folio);
   const [loader, guardarLoader]=useState(false)
   useEffect(()=>{
     setTimeout(()=>{

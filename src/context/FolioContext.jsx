@@ -57,7 +57,7 @@ const FolioProvider = (props) => {
               guardarFoliosFiltrados(meses);
             }
             if (!mes && priority === 0) {
-              console.log("sin mes y prioridad 0");
+              // console.log("sin mes y prioridad 0");
               guardarFiltrando(false)
               const filtrado = folios.filter(
                 (dato) => dato.priority_one === true && ObtenerMes(dato.created) === ''
@@ -65,14 +65,14 @@ const FolioProvider = (props) => {
               guardarFoliosFiltrados(filtrado);
             }
             if (!mes && priority === 1) {
-              console.log("sin mes y prioridad 1");
+              // console.log("sin mes y prioridad 1");
               const filtrado = folios.filter(
                 (dato) => dato.priority_one === true
               );
               guardarFoliosFiltrados(filtrado);
             }
             if (mes && priority === 1) {
-              console.log("con mes y prioridad 1");
+              // console.log("con mes y prioridad 1");
               const filtrado = folios.filter(
                 (dato) =>
                   dato.priority_one === true && ObtenerMes(dato.created) === mes
@@ -80,14 +80,14 @@ const FolioProvider = (props) => {
               guardarFoliosFiltrados(filtrado);
             }
             if (!mes && priority === 2) {
-              console.log("sin mes y prioridad 2");
+              // console.log("sin mes y prioridad 2");
               const filtrado = folios.filter(
                 (dato) => dato.priority_two === true
               );
               guardarFoliosFiltrados(filtrado);
             }
             if (mes && priority === 2) {
-              console.log("con mes y prioridad 2");
+              // console.log("con mes y prioridad 2");
               const filtrado = folios.filter(
                 (dato) =>
                   dato.priority_two === true && ObtenerMes(dato.created) === mes

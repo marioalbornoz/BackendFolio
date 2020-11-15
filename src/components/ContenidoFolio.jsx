@@ -8,7 +8,7 @@ import { PerfilContext } from '../context/PerfilContext';
 
 export const ContenidoFolio = ({folioalumno}) => {
   const {perfil} = useContext(PerfilContext)
-    console.log(folioalumno);
+    // console.log(folioalumno);
     return (
       <div className="tarjeta shadow mb-3">
         <div className="picture">

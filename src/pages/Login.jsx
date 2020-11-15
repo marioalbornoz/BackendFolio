@@ -27,7 +27,7 @@ export const Login = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(datos);
+    // console.log(datos);
     // guardarUsuario(datos.username);
     guardarLoginStatus(1);
     AuthHandler.login(datos.username, datos.password, handleAjaxResponse);

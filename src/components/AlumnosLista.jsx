@@ -18,7 +18,7 @@ export const AlumnosLista = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(busqueda);
+    // console.log(busqueda);
   }
   const handleChange = (e) => {
     guardarBusqueda(e.target.value);
