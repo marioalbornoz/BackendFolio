@@ -11,7 +11,7 @@ class Config {
   static escuelas = "https://folioe.herokuapp.com/api/escuelas/";
   static facultades = "https://folioe.herokuapp.com/api/facultad/";
   static feedback = "https://folioe.herokuapp.com/api/feedback/";
-
-}
+  static alumnos = `https://folioe.herokuapp.com/api/alumno`;
+ }
   
   export default Config;

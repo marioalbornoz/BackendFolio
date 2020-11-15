@@ -18,7 +18,7 @@ const PerfilProvider = (props) => {
             if(ismounted && idUsuario){
               const obtenerPerfil = async () => {
                 try {
-                  const url = `http://127.0.0.1:8000/api/usuarios/${idUsuario}/`;
+                  const url = `${Config.listaUsuarios}${idUsuario}/`;
                   const perfilu = await axios.get(url, {
                     headers: {
                       Authorization: `JWT ${localStorage.getItem("token")}`,
