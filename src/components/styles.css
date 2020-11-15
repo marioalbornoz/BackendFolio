@@ -1,0 +1,396 @@
+*,*:after,*:before{
+    box-sizing: border-box;
+  }
+.insignia {
+    border-radius: 0 0 25px 25px;
+    margin-bottom: 10px;
+}
+.login{
+    border-radius: 15px;
+}
+.bg-login-image{
+    background-image: url('../RedesSociales_00.png');
+    background-size: cover;
+    border-radius: 15px 0px 0 15px;
+}
+.usuarioSidebar{
+    display: none;
+    
+}
+.logo{
+    height: 50px;
+}
+.inputfolio{
+    border:none !important;
+}
+.tarjeta {
+    display: flex;
+    align-items: stretch;
+    background-color: #ffffff;
+    border-radius: 15px;
+    min-height: 90px;
+  }
+.picture{
+    padding: 1rem;
+    height: 20px;
+    display: flex;
+
+    
+}
+.imagen{
+    height: 70px;
+    border-radius: 35px;
+}
+.tarjeta-fecha{
+    font-size: 13px;
+    display: flex;
+    justify-content: right;
+}
+.titulo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    overflow-wrap: break-word;
+    width: 600px;
+
+}
+.contenido{
+    width: 460px;
+    max-width: 100%;
+}
+
+.redondeado{
+    border-radius: 10px;
+    border: nones !important;
+}
+.cabecera{
+    background-color: #1F6FD0 !important;
+}
+
+.fondo {
+    /* background-color: #D8F5DA; */
+    background-color: #ffffff;
+}
+.presentacionAlumno{
+    display: flex;
+    align-items: center;
+}
+.usuarios{
+    margin: 3px 0px 35px 80px;
+    height: 5.1rem ;
+    width: 85% !important;
+    background-color: #343a40!important;
+    border-radius: 15px;
+    
+}
+.tituloPrincipal{
+    padding-bottom: 10px!important;
+}
+.cardsesaes{
+    color: #e5e9e3;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(115, 183, 117, 1);
+}
+.fuenteCard{
+    font-weight: bold;
+}
+.blurry-text {
+    text-shadow: 0 0 32px white;
+    color: transparent;
+ }
+
+h6{
+    text-transform: capitalize;
+}
+.img-card{
+    height: 55px;
+    border: none;
+    border-radius: 32px;
+}
+.cuerpo {
+    display: flex;
+    align-items: center;
+
+}
+.perfil-imagen{
+    display: flex;
+    justify-content: center;
+    background-color:#e5e9e3 ;
+    border-radius: 15px;
+}
+.img-perfil{
+    height: 160px;
+    border-radius: 95px;
+    border: #ffffff;
+    border-style: double;
+    border-color: #ffffff;
+}
+.codigocarrera {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+.codigocarrera .card-title{
+    display: flex;
+    align-self: center;
+}
+.codigocarrera .card-text{
+    display: flex;
+    align-self:center;
+}
+.card-carrera .card-img-top{
+    background-size: auto;
+}
+.card-carrera{
+    padding: 0 0 0 0;
+}
+.check{
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    font-size: 14px;
+}
+.footer{
+    background-color: #1c61a7;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 1rem;
+    width: 100%;
+    height: 81px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+}
+
+/* @media screen and (min_width:691px) and (max_width:1090px){
+    
+} */
+
+@media screen and (max-width: 1024px) and (min-width: 601px){
+    .tarjeta {
+        display: inline-block;
+        background-color: #ffffff;
+        border-radius: 15px;
+        min-height: 90px;
+        padding: 0 0 0 1rem;
+      }
+      .titulo {
+        display: flex;
+        align-items: flex-start;
+        padding: 0 1rem 1rem 6rem;
+        /* overflow-wrap: break-word; */
+        width: 100%;
+    
+    }
+    .contenido{
+        width: 460px;
+        max-width: 100%;
+        padding-left: 1rem;
+    }
+    .navbar-toggler{
+        display: none;
+    }
+    .usuarioSidebar{
+        display: flex;
+        text-align: center;
+        padding-bottom: 1rem;
+        
+    }
+    .usuarioSidebar .logo{
+        height: 70px!important;
+    }
+    .usuarioSidebar .nav-link{
+        color: #343a40 !important;
+    }
+    .insignia {
+        border-radius: 0 0 25px 25px;
+        margin-bottom: 10px;
+        margin-left: 200%;
+    }
+    .imagen{
+        height: 60px;
+        border-style: double 10px;
+    }
+    .usuarios{
+        margin: 3px 0px 35px 30px;
+        height: 5.1rem ;
+        width: 85% !important;
+        background-color: #343a40!important;
+        border-radius: 15px;
+        
+    }
+    .tituloPrincipal{
+        padding-bottom: 10px!important;
+    }
+    .fila{
+        width: 60%;
+    }
+    
+    h6{
+        text-transform: capitalize;
+    }
+    img{
+        height: 50px;
+        border: none;
+        border-radius: 32px;
+    }
+    .cuerpo {
+        display: flex;
+        align-items: center;
+    
+    }
+    .codigocarrera {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 0 !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .codigocarrera .card-title{
+        display: flex;
+        align-self: center;
+    }
+    .codigocarrera .card-text{
+        display: flex;
+        align-self:center;
+    }
+    .card-carrera .card-img-top{
+        display: none;
+    }
+    .card-carrera{
+        padding: 0 0 0 0;
+    }
+    
+}
+
+@media screen and (max-width: 600px) and (min-width: 382px){
+    .insignia {
+        border-radius: 0 0 25px 25px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+
+    }
+    .report {
+        margin-left: auto!important;
+    }
+    .logo {
+        padding-right: 10px;
+    }
+    .tarjeta{
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-left: 1rem;
+    }
+    .titulo{
+        display: inline-block;
+        align-items: end;
+        padding-left: 5rem;
+        width: 100%;
+    }
+    .contenido{
+        font-size: 15px;
+    }
+    .imagen{
+        height: 50px;
+        margin-top: 30px;
+    }
+    .usuarios{
+        margin: 3px 0px 35px 25px;
+        height: 5.1rem ;
+        width: 85% !important;
+        background-color: #1c61a7!important;
+        border-radius: 15px;
+        
+    }
+    .card-carrera .card-img-top{
+        display: none;
+    }
+}
+@media screen and (max-width:381px) and (min-width: 200px){
+    .insignia {
+        border-radius: 0 0 25px 25px;
+        margin-bottom: 10px;
+    }
+    .report {
+        margin-left: auto!important;
+    }
+    .tarjeta{
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding-left: 1rem;
+    }
+    .titulo{
+        display: inline-block;
+        align-items: end;
+        padding-left: 5rem;
+        width: 100%;
+    }
+    .contenido{
+        font-size: 15px;
+    }
+    .imagen{
+        height: 50px;
+        margin-top: 30px;
+    }
+    .img-perfil{
+        height: 50px;
+    }
+    .alineado{
+        display: flex;
+    }
+    .logo{
+        height: 40px;
+    }
+    .usuarios{
+        height: 95%;
+        width: 85%;
+        background-color: #343a40!important;
+        
+    }
+    .tituloPrincipal{
+        padding-bottom: 10px!important;
+    }
+    .fila{
+        width: 80%;
+    }
+    
+    h6{
+        text-transform: capitalize;
+    }
+    img{
+        height: 50px;
+        border: none;
+        border-radius: 32px;
+    }
+    .cuerpo {
+        display: flex;
+        align-items: center;
+    
+    }
+    .card-carrera .card-img-top{
+        display: none;
+    }
+    .bg-login-image{
+        background-image: url('../RedesSociales_00.png');
+        background-size: cover;
+    }
+    .rut{
+        display: none;
+    }
+    .usuarios{
+        margin: 3px 0px 35px 25px;
+        height: 5.1rem ;
+        width: 85% !important;
+        background-color: #1c61a7!important;
+        border-radius: 15px;
+        
+    }
+}
