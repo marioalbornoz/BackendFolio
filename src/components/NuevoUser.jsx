@@ -13,10 +13,12 @@ export const NuevoUser = () => {
     const {carreras, escuelas} = useContext(CarreraContext);
     const [status, setStatus] = useState(null);
     const [alerta, guardarAlerta] = useState(false);
+    const [repeat, setRepeat] = useState(false);
     const [datos, guardarDatos] = useState({
         username:"",
         email:"",
         password:"",
+        password2:"",
         firstname:"",
         lastname:"",
         rol:"",
@@ -46,7 +48,7 @@ export const NuevoUser = () => {
         const respuesta = await axios.post(
           Config.listaUsuarios,
           {
-            username: datos.username,
+            username: datos.username.toLowerCase(),
             email: datos.email,
             password: datos.password,
             first_name: datos.firstname,
@@ -69,6 +71,7 @@ export const NuevoUser = () => {
           username: "",
           email: "",
           password: "",
+          password2:"",
           firstname: "",
           lastname: "",
           rol: null,
@@ -83,7 +86,13 @@ export const NuevoUser = () => {
        }
         
       };
-      enviarDatos();
+      if(datos.password.trim()===datos.password2.trim()){
+        setRepeat(false);
+        enviarDatos();
+      }
+      else {
+        setRepeat(true);
+      }
     };
 
     return (
@@ -138,6 +147,18 @@ export const NuevoUser = () => {
                   onChange={handleInput}
                   required
                 />
+                <input
+                  className="form-control mb-2"
+                  value={datos.password2}
+                  type="password"
+                  name="password2"
+                  placeholder="Repita password"
+                  onChange={handleInput}
+                  required
+                />
+                {
+                  repeat ? <div className="alert alert-danger">Las claves deben ser similares</div>:null
+                }
                 <input
                   className="form-control mb-2"
                   type="text"
