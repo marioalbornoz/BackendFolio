@@ -40,7 +40,7 @@ export const ContenrHome = () => {
             ))
           )
         ) : (
-          <p>Usuario sin Facultad</p>
+          <p>No tienes una facultad fija asignada</p>
         )}
         <br />
         <hr />

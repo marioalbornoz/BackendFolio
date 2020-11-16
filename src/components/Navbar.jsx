@@ -31,7 +31,7 @@ export const Navbar = () => {
       </button>
       <a className="navbar-brand" href="/">
         <img src={logo} className="logo" alt="" />
-        <img src={insignia} height={35} alt="" className="insignia"/>
+        <img src={insignia} height={35} alt="" className="insignia" />
       </a>
 
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
@@ -42,9 +42,15 @@ export const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/reportes">
-              Reportes
-            </a>
+            {perfil.rol === 5 ? (
+              <a className="nav-link" href="/sesaes">
+                Historial
+              </a>
+            ) : perfil.rol === 4 || perfil.rol === 7 || perfil.rol === 8 ? (
+              <a className="nav-link" href="/academicos">
+                Historial
+              </a>
+            ) : null}
           </li>
           <li className="nav-item">
             <a
@@ -55,6 +61,11 @@ export const Navbar = () => {
               }}
             >
               Alumnos
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/reportes">
+              Reportes
             </a>
           </li>
           <li className="nav-item dropdown">
@@ -82,7 +93,6 @@ export const Navbar = () => {
               className="dropdown-menu shadow"
               aria-labelledby="navbarDropdownMenuLink"
             >
-              
               <a className="dropdown-item" href={`/perfil/${id}`}>
                 Perfil
               </a>

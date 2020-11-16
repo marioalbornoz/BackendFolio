@@ -28,7 +28,7 @@ export const TarjetaContenidos = ({folio, oculto}) => {
           {!oculto && (folio.usuario===perfil.username) ? (
             <span className="">{folio.content}</span>
           ) : (
-            <span>"Contenido sensible, ha sido ocultado."</span>
+            <span>"Contenido sensible, ha sido ocultado en este historial."</span>
           )}
           <small className="small">
             ({folio.alumno.nombres} {folio.alumno.apellidos})
