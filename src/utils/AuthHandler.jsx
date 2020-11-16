@@ -5,7 +5,7 @@ import { reactLocalStorage } from "reactjs-localstorage";
 class AuthHandler {
   static login(username, password, callback) {
     axios
-      .post(Config.loginUrl, { username: username, password: password })
+      .post(Config.loginUrl, { username: username.toLowerCase(), password: password })
       .then(function (response) {
         if (response.status === 200) {
           reactLocalStorage.set("token", response.data.access);
