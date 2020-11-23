@@ -71,6 +71,8 @@ class FolioViewSet(viewsets.ViewSet):
 
 
 class AlumnoViewSet(viewsets.ModelViewSet):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = AlumnoSerializer
     queryset = Alumno.objects.all()
     pagination_class = PageNumberPagination

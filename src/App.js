@@ -22,6 +22,7 @@ import { Report } from './pages/Report';
 import { Sesaes } from './pages/Sesaes';
 import { Academicos } from './pages/Academicos';
 import { NuevoUser } from './components/NuevoUser';
+import { agregarAlumno } from './components/agregarAlumno';
 // import { Footer } from './components/Footer';
 
 
@@ -76,6 +77,11 @@ function App() {
                           exact
                           path="/usuarios/agregar"
                           component={NuevoUser}
+                        />
+                        <PrivateRoute
+                          exact
+                          path="/alumnos/agregar"
+                          component={agregarAlumno}
                         />
                         <PrivateRoute exact path="/" component={ContenrHome} />
                       </Switch>

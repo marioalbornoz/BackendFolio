@@ -5,7 +5,7 @@ import { AlumnosLista } from '../components/AlumnosLista'
 export const Alumnos = () => {
   return (
     <div className="p-md-5 col-lg-10 col-md-9">
-       <h2 className="mb-4 p-3 lead ">Lista de alumnos</h2>
+       <h2 className="mb-4 p-3 lead ">Lista de alumnos <a href="alumnos/agregar"><i className="fas fa-user-plus"></i></a></h2>
       <AlumnosLista />
     </div>
   );

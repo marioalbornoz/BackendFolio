@@ -37,7 +37,13 @@ const AlumnosProvider = (props) => {
     if (ismounted) {
       try {
         const obtenerListaAlumnos = async () => {
-          const alumnos = await axios(`${Config.alumnos}/?page=${counter}`);
+          const alumnos = await axios(`${Config.alumnos}?page=${counter}`, 
+          {
+            headers: {
+              Authorization: `JWT ${localStorage.getItem("token")}`,
+              "Content-type": "application/json",
+            },
+          });
           guardarAlumnosLista(alumnos.data.results);
           setPrevious(alumnos.data.previous);
           setNext(alumnos.data.next)
