@@ -35,8 +35,9 @@ const AlumnosProvider = (props) => {
   //ejecutar llamado a la api
   useEffect(() => {
     if (ismounted) {
-      try {
+      
         const obtenerListaAlumnos = async () => {
+          try {
           const alumnos = await axios(`${Config.alumnos}?page=${counter}`, 
           {
             headers: {
@@ -47,16 +48,17 @@ const AlumnosProvider = (props) => {
           guardarAlumnosLista(alumnos.data.results);
           setPrevious(alumnos.data.previous);
           setNext(alumnos.data.next)
-        };
+        } catch (error) {
+          console.error(error);
+          if (error.status !== 401) {
+            AuthHandler.logoutUser();
+            window.location = Config.logoutPageUrl;
+          }
+        }
+        } 
         obtenerListaAlumnos();
         decodePayload();
-      } catch (error) {
-        console.error(error);
-        if (error.status !== 401) {
-          AuthHandler.logoutUser();
-          window.location = Config.logoutPageUrl;
-        }
-      }
+      
     }
   }, [ismounted, counter]);
   return (
