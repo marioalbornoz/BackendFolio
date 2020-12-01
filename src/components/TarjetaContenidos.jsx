@@ -23,15 +23,16 @@ export const TarjetaContenidos = ({folio, oculto}) => {
         )}`}
       >
         <p className="">
+          {folio.priority_one ? <i class="fas fa-exclamation mr-2"></i> : null}
           {" "}
-          <span className="fuenteCard">{folio.usuario}</span> :{" "}
+          <span className="fuenteCard">{folio.alumno.nombres} {folio.alumno.apellidos}</span> :{" "}
           {!oculto && (folio.usuario===perfil.username) ? (
             <span className="">{folio.content}</span>
           ) : (
-            <span>"Contenido sensible, ha sido ocultado en este historial."</span>
+            <span>"Contenido no accesible, ha sido ocultado en este historial."</span>
           )}
           <small className="small">
-            ({folio.alumno.nombres} {folio.alumno.apellidos})
+            ({folio.usuario})
           </small>
         </p>
       </div>

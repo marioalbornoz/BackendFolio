@@ -13,7 +13,7 @@ export const Profesores = () => {
         <div className=" row title m-5">
           <h4 className="lead">Usuarios Registrados </h4>
           <hr/>
-          <h4 className="lead">Agregar {" "}<a href="usuarios/agregar"><i className="fas fa-user-plus"></i></a></h4>
+          <h4 className="lead">Agregar usuario{" "}<a href="usuarios/agregar"><i className="fas fa-user-plus"></i></a></h4>
           
         </div>
         <div className="row">

@@ -9,7 +9,7 @@ export const Alumnos = () => {
         <h4 className="lead">Lista de alumnos</h4>
         <hr />
         <h4 className="lead">
-          Agregar{" "}
+          Agregar alumno{" "}
           <a href="alumnos/agregar">
             <i className="fas fa-user-plus"></i>
           </a>
