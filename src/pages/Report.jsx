@@ -17,7 +17,7 @@ export const Report = () => {
       return foliosmes.length;
     }
     const data = {
-      labels:['Prioridad 1', 'Prioridad 2'],
+      labels:['Prioridad Alta', 'Prioridad Baja'],
       datasets:[{
         data:[(foliospriorityone.length*100/foliostotales), (foliosprioritytwo.length*100/foliostotales)],
         backgroundColor:['#FF5734', '#ffc107'],
@@ -101,7 +101,7 @@ export const Report = () => {
                       <div className="card-body">
                         <div className="pull-right">
                           <i className="fas fa-chart-line"></i>
-                          <p>Prioridad 1</p>
+                          <p>Prioridad Alta</p>
                           <h4>{foliospriorityone.length}</h4>
                         </div>
                         <div className="progress md-progress">
@@ -133,7 +133,7 @@ export const Report = () => {
                       <div className="card-body">
                         <div className="pull-right">
                           <i className="fas fa-chart-line"></i>
-                          <p>Prioridad 2</p>
+                          <p>Prioridad Baja</p>
                           <h4>{foliosprioritytwo.length}</h4>
                         </div>
                         <div className="progress md-progress">

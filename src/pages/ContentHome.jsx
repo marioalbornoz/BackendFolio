@@ -46,7 +46,8 @@ export const ContenrHome = () => {
         <hr />
         <div className="row">
           <div className="col col-lg-6 col-md-12 col-sm-12">
-            <h6 className="lead m-3">Deja tus comentarios</h6>
+            <h6 className="lead m-3">Deja tus comentarios sobre este sistema</h6>
+            <p className="quote m-3">Lo que escribas será privado y solo lo podra leer el administrador</p>
             <Feedbacks />
           </div>
         </div>

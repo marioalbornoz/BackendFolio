@@ -98,11 +98,11 @@ export const rolUsuario = (rol) => {
 export const carreraUsuario = (carrera) => {
     switch (carrera) {
       case 1:
-        return "Informatica";
+        return "Informática";
       case 2:
-        return "Ing. Civil en Computacion";
+        return "Ingeniería Civil en Computación";
       case 3:
-        return "Ing. Civil en Ciencia de Datos";
+        return "Ingeniería Civil en Ciencia de Datos";
       case 4:
         return "ninguna";
       case 5:

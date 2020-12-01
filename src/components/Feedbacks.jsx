@@ -13,7 +13,7 @@ export const Feedbacks = () => {
         if(loading){
             setTimeout(() => {
               alert(
-                "gracias por tu comentario! Estamos trabajando para mejorar el sitio"
+                "Gracias por tu comentario! Estamos trabajando para mejorar el sitio"
               );
             }, 4000);
         }

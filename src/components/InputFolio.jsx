@@ -86,7 +86,7 @@ export const InputFolio = () => {
             checked={prioridad.nivel ==="basico"}
             onChange={obtenerPrioridad}
           />
-          Prioridad 1
+          Prioridad alta
         </label>
         <label className="lead">
           <input
@@ -97,7 +97,7 @@ export const InputFolio = () => {
             checked={prioridad.nivel ==="medio"}
             onChange={obtenerPrioridad}
           />
-          Prioridad 2</label>
+          Prioridad baja</label>
       </div>
       <div className="input-group-append">
         <button className="btn btn-outline-secondary redondeado">Enviar</button>

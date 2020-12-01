@@ -52,7 +52,7 @@ export const AlumnosLista = () => {
               <th>Alumno</th>
               <th className="rut">Rut</th>
               <th>Carrera</th>
-              <th>Accion</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
@@ -79,7 +79,7 @@ export const AlumnosLista = () => {
                             data-toggle="modal"
                             data-target="#exampleModalLong"
                           >
-                            Folio
+                            Ingresar
                           </button>
                           <ModalFolio />
                         </td>
@@ -104,7 +104,7 @@ export const AlumnosLista = () => {
                             data-toggle="modal"
                             data-target="#exampleModalLong"
                           >
-                            Folio
+                            Ingresar
                           </button>
                           <ModalFolio />
                         </td>
@@ -131,7 +131,7 @@ export const AlumnosLista = () => {
                           data-toggle="modal"
                           data-target="#exampleModalLong"
                         >
-                          Folio
+                          Ingresar
                         </button>
                         <ModalFolio />
                       </td>
@@ -152,7 +152,7 @@ export const AlumnosLista = () => {
                         data-toggle="modal"
                         data-target="#exampleModalLong"
                       >
-                        Folio
+                        Ingresar
                       </button>
                       <ModalFolio />
                     </td>

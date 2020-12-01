@@ -72,15 +72,14 @@ export const Sidebar = () => {
             <li className="nav-item">
               <a className="nav-link text-secondary" href="/academicos">
                 <i className="fas fa-chalkboard-teacher mr-2" />
-                Academicos
+                Reg. académico
               </a>
             </li>
-            
 
             <li className="nav-item">
               <a className="nav-link text-secondary" href="/sesaes">
                 <i className="fas fa-briefcase-medical mr-2" />
-                Sesaes
+                Reg. sesaes
               </a>
             </li>
 
@@ -92,37 +91,26 @@ export const Sidebar = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link text-secondary" href="/usuarios">
+                <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                Usuarios
+              </a>
+            </li>
+
+            <li className="nav-item mt-4 pt-4">
+              <a className="nav-link text-secondary" href={`/perfil/${id}`}>
                 <i className="fas fa-user-alt mr-2" />
-                Funcionarios activos
+                Mi Perfil
               </a>
             </li>
             
-            <li className="nav-item mt-4 pt-4">
-              <a className="nav-link text-secondary" href={`/perfil/${id}`}>
-                Perfil
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-secondary" href="https://www.reko.cl">
-                Reko
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link text-secondary"
-                href="https://www.academia.utem.cl"
-              >
-                Academia
-              </a>
-            </li>
             <li className="nav-item">
               <a className="nav-link text-secondary" href="!#">
-                Acerca de
+              <i class="fas fa-info-circle mr-2"></i>Acerca de
               </a>
             </li>
             <li className="nav-item mb-4 pb-4">
               <a className="nav-link text-secondary" href="/logout">
-                Cerrar sesion
+              <i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión
               </a>
             </li>
           </ul>

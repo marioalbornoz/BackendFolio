@@ -7,7 +7,7 @@ export const Escuela = ({escuelaNombre, carreras}) => {
    
     return (
         <div className="ml-3 mb-4" >
-            <h6>Departamento de {escuelaNombre}</h6>
+            <h6>Escuela de {escuelaNombre}</h6>
             <Carreras carreras={carreraDeEscuela} escuelaNombre={escuelaNombre} />
             
         </div>
