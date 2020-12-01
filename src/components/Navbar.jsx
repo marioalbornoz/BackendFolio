@@ -94,10 +94,10 @@ export const Navbar = () => {
               aria-labelledby="navbarDropdownMenuLink"
             >
               <a className="dropdown-item" href={`/perfil/${id}`}>
-                Perfil
+                Mi perfil
               </a>
               <a className="dropdown-item" href={Config.logoutPageUrl}>
-                Cerrar sesion
+                Cerrar sesión
               </a>
             </div>
           </li>
