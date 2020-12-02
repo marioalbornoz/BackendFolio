@@ -19,13 +19,14 @@ class UserSerializer(serializers.ModelSerializer):
     carreranombre = serializers.ReadOnlyField(source='carrera.nombre')
     facultadnombre = serializers.ReadOnlyField(source='facultad.nombre')
     escuelanombre = serializers.ReadOnlyField(source='escuela.nombre')
-    last_login = serializers.ReadOnlyField(source='user.last_login')
+    # last_login = serializers.ReadOnlyField(source='user.last_login')
+    # date_joined = serializers.ReadOnlyField(source='user.date_joined')
     class Meta:
         model = User
         fields = ('id', 'username', 'first_name', 'last_name',
-                  'password', 'email', 'is_active', 'last_login',
-                  'sex', 'rol', 'carrera', 'carreranombre', 'escuela','escuelanombre',
-                  'facultad', 'facultadnombre', 'is_staff', 'is_manager', 'is_log')
+                  'password', 'email', 'is_active', 'last_login','date_joined',
+                  'rol', 'carrera', 'carreranombre', 'escuela','escuelanombre',
+                  'facultad', 'facultadnombre')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
     # def to_representation(self, instance):
@@ -38,6 +39,13 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+    def update(self, instance, validated_data):
+        instance.username = validated_data.get('username', instance.username)
+        instance.email = validated_data.get('email', instance.email)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+        self.instance.save()
+        return instance
 
 class FacultadSerializer(serializers.ModelSerializer):
     class Meta:

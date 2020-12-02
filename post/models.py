@@ -1,7 +1,31 @@
 from django.db import models
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import User, AbstractUser, BaseUserManager, AbstractBaseUser, UserManager
 import uuid
 
+
+# Create manager
+"""
+class userManager(BaseUserManager, models.Manager):
+
+    def _create_user(self, username, email, password, is_staff, is_superuser, is_active, **extra_fields):
+        user = self.model(
+            username=username,
+            email=email,
+            is_staff=is_staff,
+            is_superuser=is_superuser,
+            is_active=is_active,
+            **extra_fields
+        )
+        user.set_password(password)
+        user.save(using=self.db)
+        return user
+    
+    def create_user(self, username, email, password=None, **extra_fields):
+        return self._create_user(username, email, password, False, False, True, **extra_fields)
+
+    def create_superuser(self, username, email, password=None, **extra_fields):
+        return self._create_user(username, email, password, True, True, True, **extra_fields)
+"""
 
 # Create your models here.
 
@@ -34,15 +58,22 @@ class Rol(models.Model):
         return self.roles
 
 class CustomUser(AbstractUser):
+    # username = models.CharField(max_length=50)
+    # email = models.EmailField( max_length=254)
+    first_name = models.CharField( max_length=50)
+    last_name = models.CharField(max_length=50)
     carrera = models.ForeignKey(Carrera, on_delete=models.CASCADE, blank=True, null=True)
     facultad = models.ForeignKey(Facultad, on_delete=models.CASCADE, blank=True, null=True)
-    sex = models.BooleanField(default=False)
     rol = models.ForeignKey(Rol, on_delete=models.CASCADE, null=True, blank=True)
     escuela = models.ForeignKey(Escuela,on_delete=models.CASCADE, null=True, blank=True)
-    is_manager = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_log = models.BooleanField(default=False);
+
+    # USERNAME_FIELD = 'username'
+    # REQUIRED_FIELDS = ['email']
+
+    #objects = userManager()
+
+    def get_full_name(self):
+        return self.nombres + ' ' + self.apellidos
 
 class Alumno(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

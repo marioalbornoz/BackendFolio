@@ -84,6 +84,42 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
     pagination_class = None
+    def put(self, request, *args, **kwargs):
+        user = self.get_object(request.data.get('user').get('username'))
+        userSerializer = UserSerializer(user, data=request.data)
+        if userSerializer.is_valid(raise_exception=True):
+            userSerializer.save()
+        return Response(userSerializer.data, status=status.HTTP_200_OK)
+    """
+    pagination_class = None
+    def list(self, request):
+        user = CustomUser.objects.all()
+        serializer = UserSerializer(user, many=True, context={"request": request})
+        response_dict = {"error": False, "message": "Todas las usuarios en Data", "data": serializer.data}
+        return Response(response_dict)
+
+    def create(self, request):
+        try:
+            serializer = UserSerializer(data=request.data, context={"request": request})
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            dict_response = {"error": False, "message": "User Data Save Successfully"}
+        except:
+            dict_response = {"error": True, "message": "Error During Saving user Data"}
+        return Response(dict_response)
+
+    def update(self, request, pk=None):
+        try:
+            queryset = CustomUser.objects.all()
+            users = get_object_or_404(queryset, pk=pk)
+            serializer = UserSerializer(users, data=request.data, context={"request": request})
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            dict_response = {"error": False, "message": "Successfully Updated User Data"}
+        except:
+            dict_response = {"error": True, "message": "Error During Updating User Data"}
+
+        return Response(dict_response)"""
 
 class FacultadViewSet(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
@@ -108,6 +144,10 @@ class FeedbackViewSet(viewsets.ModelViewSet):
 
 carrera_list = CarreraViewSet.as_view({"get": "list"})
 carrera_creat = CarreraViewSet.as_view({"post": "create"})
+
+user_list = UserViewSet.as_view({"get": "list"})
+user_creat = UserViewSet.as_view({"post": "create"})
+user_update = UserViewSet.as_view({"put": "update"})
 
 folio_list = FolioViewSet.as_view({"get": "list"})
 folio_creat = FolioViewSet.as_view({"post": "create"})
