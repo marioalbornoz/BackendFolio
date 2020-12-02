@@ -164,6 +164,7 @@ export const colorTargetHistorial = (folio) => {
     return clase;
   };
 
+
 export const obtenerCarreraCodigo = (id) => {
   if (id) {
     localStorage.setItem("carrera", id);

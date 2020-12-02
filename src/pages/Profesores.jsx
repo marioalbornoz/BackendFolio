@@ -19,9 +19,10 @@ export const Profesores = () => {
         <div className="row">
           {usuarios.data ? (
             usuarios.data.map((user) => (
-              <div
+              <a
                 className={`card text-white usuarios shadow col-lg-3 col-md-5 col-sm-12`}
                 key={user.id}
+                href={`/perfil/${user.id}`}
               >
                 <div className="card-header">
                   {user ? (rolUsuario(user.rol) ) : null}
@@ -30,7 +31,7 @@ export const Profesores = () => {
                   <img src={imagen} alt="hola" className="img-card" />
                   <h6 className="card-title pl-2">{user.username}</h6>
                 </div>
-              </div>
+              </a>
             ))
           ) : (
             <Spinner />
