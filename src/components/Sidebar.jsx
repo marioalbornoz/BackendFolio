@@ -91,7 +91,7 @@ export const Sidebar = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link text-secondary" href="/usuarios">
-                <i class="fa fa-users mr-2" aria-hidden="true"></i>
+                <i className="fa fa-users mr-2" aria-hidden="true"></i>
                 Usuarios
               </a>
             </li>
@@ -105,12 +105,12 @@ export const Sidebar = () => {
             
             <li className="nav-item">
               <a className="nav-link text-secondary" href="!#">
-              <i class="fas fa-info-circle mr-2"></i>Acerca de
+              <i className="fas fa-info-circle mr-2"></i>Acerca de
               </a>
             </li>
             <li className="nav-item mb-4 pb-4">
               <a className="nav-link text-secondary" href="/logout">
-              <i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión
+              <i className="fas fa-sign-out-alt mr-2"></i>Cerrar sesión
               </a>
             </li>
           </ul>
