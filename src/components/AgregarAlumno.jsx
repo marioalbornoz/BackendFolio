@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, {useContext, useEffect, useState} from 'react';
 import { CarreraContext } from '../context/CarreraContext';
 import { PerfilContext } from '../context/PerfilContext';
+import { capitalize } from '../helpers';
 import Config from '../utils/Config';
 
 export const AgregarAlumno = () => {
@@ -37,8 +38,8 @@ export const AgregarAlumno = () => {
         const respuesta = await Axios.post(
           Config.alumnos,
           {
-            nombres:alumno.nombres.toLowerCase(),
-            apellidos: alumno.apellidos.toLowerCase(),
+            nombres:capitalize(alumno.nombres),
+            apellidos: capitalize(alumno.apellidos),
             rut: alumno.rut,
             is_active: true,
             carrera:alumno.carrera

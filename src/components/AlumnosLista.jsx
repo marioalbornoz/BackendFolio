@@ -67,7 +67,7 @@ export const AlumnosLista = () => {
                     .map((alumno, i) => (
                       <tr key={i}>
                         <td>
-                          {alumno.nombres} {alumno.apellidos}
+                          <p className="text-capitalize">{alumno.nombres} {alumno.apellidos}</p>
                         </td>
                         <td className="rut">{alumno.rut}</td>
                         <td>{alumno.carrera.codigo}</td>
