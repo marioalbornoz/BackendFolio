@@ -8,6 +8,9 @@
 .login{
     border-radius: 15px;
 }
+.size{
+    font-size: 12px;
+}
 .bg-login-image{
     background-image: url('../RedesSociales_00.png');
     background-size: cover;

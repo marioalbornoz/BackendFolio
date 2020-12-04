@@ -29,13 +29,6 @@ class UserSerializer(serializers.ModelSerializer):
                   'facultad', 'facultadnombre')
         extra_kwargs = {'password': {'write_only': True, 'required': True}}
 
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     groups = instance.groups.all()
-    #     groups_serializers = GroupSerializer(groups, many=True)
-    #     representation['groups'] = groups_serializers.data
-    #     return representation
-
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user

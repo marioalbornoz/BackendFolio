@@ -118,7 +118,7 @@ export const NuevoUser = () => {
               </div>
             ) : null}
 
-            <form className="form m-4" onSubmit={handleSubmit}>
+            <form className="form m-4" onSubmit={handleSubmit} autocomplete="off">
               <div className="form-group">
                 <input
                   className="form-control mb-2"
@@ -127,6 +127,7 @@ export const NuevoUser = () => {
                   placeholder="Usuario"
                   onChange={handleInput}
                   value={datos.username}
+                  autocomplete="off"
                   required
                 />
                 <input
@@ -136,6 +137,7 @@ export const NuevoUser = () => {
                   placeholder="Correo"
                   onChange={handleInput}
                   value={datos.email}
+                  autoComplete="off"
                   required
                 />
                 <input
@@ -145,6 +147,7 @@ export const NuevoUser = () => {
                   name="password"
                   placeholder="Password"
                   onChange={handleInput}
+                  autoComplete="off"
                   required
                 />
                 <input

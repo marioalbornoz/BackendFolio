@@ -2,14 +2,15 @@ import React, { useContext } from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Spinner } from '../components/Spinner';
-// import { PerfilContext } from '../context/PerfilContext';
+import { PerfilContext } from '../context/PerfilContext';
 import { UserContext } from '../context/UserContext';
 import { rolUsuario } from '../helpers';
 import img from '../perfil-clase.png';
 export const Perfil = () => {
-  // perfil entrega datos de usuario log
+  
   const {usuarios} = useContext(UserContext)
-  // const { perfil } = useContext(PerfilContext);
+  // perfil entrega datos de usuario log
+  const { perfil } = useContext(PerfilContext);
   // const { username, email, rol } = perfil;
   const [idurl, guardarId] = useState();
     
@@ -27,8 +28,12 @@ export const Perfil = () => {
     const filtrado = usuarios.data ? usuarios.data.filter(usuario => usuario.id===parseInt(idurl)) : null;   
     return (
       <div className="col-lg-9 col-md-8 mt-5 perfil">
-        <div className="title m-3 ml-5 pb-4">
-          <h4 className="font-weight-bold">Perfil Usuario</h4>
+        <div className="row m-3 ml-5 pb-4 title">
+          <h4 className="font-weight-bold mr-3">Perfil Usuario</h4>
+          {
+            perfil.id === parseInt(idurl) ? <button type="submit" className="btn btn-primary size">Editar <i className="fas fa-user-edit"></i></button> : null
+          }
+          
         </div>
         {filtrado ? filtrado.map((user) => (
           <div key={user.id} className="card shadow redondeado ml-lg-5">
@@ -57,12 +62,14 @@ export const Perfil = () => {
               {/* {
               user.facultad ?<p><span className="font-weight-bold">Facultad</span>: {user.facultad}</p> : null
             }
+            */}
             {
-              user.escuela ?<p><span className="font-weight-bold">Escuela</span>: {user.escuela}</p> : null
+              user.escuela ?<p className="lead text-capitalize"><span className="font-weight-bold">Escuela</span>: {user.escuelanombre}</p> : null
             }
+            
             {
-              user.carrera ?<p><span className="font-weight-bold">Carrera</span>: {user.carrera}</p> : null
-            } */}
+              user.carrera ?<p className="lead"><span className="font-weight-bold">Carrera</span>: {user.carreranombre}</p> : null
+            } 
             </div>
             
           </div>

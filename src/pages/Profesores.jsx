@@ -14,7 +14,6 @@ export const Profesores = () => {
           <h4 className="lead">Usuarios Registrados </h4>
           <hr/>
           <h4 className="lead">Agregar usuario{" "}<a href="usuarios/agregar"><i className="fas fa-user-plus"></i></a></h4>
-          
         </div>
         <div className="row">
           {usuarios.data ? (
