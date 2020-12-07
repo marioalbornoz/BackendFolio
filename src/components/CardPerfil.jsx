@@ -56,6 +56,7 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
             enviarDatos();
         }else {
           setRepeat(true);
+          estaEditando(true);
         }
 
         
@@ -194,7 +195,7 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
               Las claves deben ser similares
             </div>
           ) : null}
-         <input type="submit" value="Guardar" /> 
+         <input className="btn btn-outline-primary btn-block my-3" type="submit" value="Enviar" /> 
 
           {/* <button onClick={estaEditando(false)}>Guardar</button> */}
         </form>
