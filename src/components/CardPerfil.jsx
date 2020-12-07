@@ -9,8 +9,8 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
     const [repeat, setRepeat] = useState(false);
     const [datos, setDatos] = useState({
         username:user.username,
-        first_name:"",
-        last_name:"",
+        first_name:user.first_name,
+        last_name:user.last_name,
         email:user.email,
         password1:"",
         password2:""
