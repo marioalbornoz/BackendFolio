@@ -46,6 +46,7 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
                     },
                   }
                 ); 
+                console.log(`se hicieron cambios en los campos`,postear);
             } catch (error) {
                 console.error(error)
             }
@@ -172,7 +173,7 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
               {user.carreranombre}
             </p>
           ) : null}
-          <label>Contrasenia:</label>
+          <label>Contraseña:</label>
           <input
             className="form-control"
             type="password"
@@ -180,7 +181,7 @@ export const CardPerfil = ({user, editando, estaEditando, id}) => {
             onChange={handleInput}
             value={datos.password1}
           />
-          <label>Repita contrasenia:</label>
+          <label>Repita contraseña:</label>
           <input
             className="form-control"
             onChange={handleInput}
