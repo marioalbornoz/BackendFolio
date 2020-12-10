@@ -247,7 +247,7 @@ export const NuevoUser = () => {
                           <option value={5}>Humanidades y tecnologias de la comunicacion social</option>
                         </>
                       ) : (
-                        <option value={7}>Todas</option>
+                        <option value={6}>Todas</option>
                       )}
                     </select>
                     <select
