@@ -244,10 +244,7 @@ export const NuevoUser = () => {
                           <option value={4}>
                             Ciencias naturales, matematica y medio ambiente
                           </option>
-                          <option value={5}>Academico</option>
-                          <option value={6}>
-                            Humanidades y tecnologias de la comunicacion social
-                          </option>{" "}
+                          <option value={5}>Humanidades y tecnologias de la comunicacion social</option>
                         </>
                       ) : (
                         <option value={7}>Todas</option>
